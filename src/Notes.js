@@ -38,11 +38,44 @@ What is an assembler?
 What is run-time? 
 
 Bytecode vs Machine Code 
-    // need to watch videos on bytecode
-
-
+    // need to watch videos on bytecode and machine code 
 
 What are first-class functions? 
+    // A programming language is said to have First-class functions when functions in that language are treated like any other variable.
+
+    // ex. first-class functions can be returned by another function, assigned as a value to a variable, and can be passed as an argument to other functions
+
+What are higher-order functions?
+    // functions that returns a function
+
+    // you are able to do this because you treat the returned function as a value
+
+    // Invoking higher order functions 
+
+    1. Using a variable 
+        // -> You have to use another variable. If you invoked sayHello directly, it would return the function itself without invoking its returned function.
+
+            const sayHello = function() {
+                return function() {
+                console.log("Hello!");
+                }
+            }
+            const myFunc = sayHello();
+            myFunc();
+            // Hello!
+
+    2. Using double parentheses. 
+        // We are using double parentheses ()() to invoke the returned function as well.
+            
+        function sayHello() {
+            return function() {
+               console.log("Hello!");
+            }
+         }
+         sayHello()();
+         // Hello!
+        
+
 
 What is proto-typed based? 
 
