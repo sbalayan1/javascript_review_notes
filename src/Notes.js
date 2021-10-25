@@ -75,9 +75,55 @@ What are higher-order functions?
          sayHello()();
          // Hello!
         
-
-
 What is proto-typed based? 
 
 What are object-oriented, imperative, and declarative styles? 
-    
+
+What is an object? 
+    // An object is a collection of related data and/or functionality (which usually consists of several variables and functions — which are called properties and methods when they are inside objects.)
+
+    example of an Object Literal aka an object whose contents are written out vs. from instantiated classes
+
+    const cat = {
+        name: 'arthur',
+        age: 3, 
+        gender: 'male'
+    }
+
+What is this? -> refering to the 'this' keyword
+
+    A function's this keyword behaves a little differently in JavaScript compared to other languages. It also has some differences between strict mode and non-strict mode.
+
+    In most cases, the value of this is determined by how a function is called (runtime binding). It can't be set by assignment during execution, and it may be different each time the function is called. ES5 introduced the bind() method to set the value of a function's this regardless of how it's called, and ES2015 introduced arrow functions which don't provide their own this binding (it retains the this value of the enclosing lexical context).
+
+    Global Context
+
+        -> In the global execution context (outside of any function), this refers to the global object whether in strict mode or not.
+
+    Function Context
+
+        -> Inside a function, the value of this depends on how the function is called.
+
+        Since the following code is not in strict mode, and because the value of this is not set by the call, this will default to the global object, which is window in a browser 
+
+        -> In strict mode, however, if the value of this is not set when entering an execution context, it remains as undefined. 
+
+        To set the value of this to a particular value when calling a function, use call(), or apply(). 
+
+    Class Context 
+
+        -> The behavior of this in classes and functions is similar, since classes are functions under the hood. But there are some differences and caveats.
+
+        Within a class constructor, this is a regular object. All non-static methods within the class are added to the prototype of this.  Static methods are not properties of this. They are properties of the class itself.
+
+
+        -> Unlike base class constructors, derived constructors have no initial this binding. Calling  super() creates a this binding within the constructor and essentially has the effect of evaluating the following line of code, where Base is the inherited class:
+
+            this = new Base();
+        
+        Derived classes must not return before calling super(), unless they return an Object or have no constructor at all.
+
+What is the constructor method? 
+
+
+What does charCodeAt do? 
